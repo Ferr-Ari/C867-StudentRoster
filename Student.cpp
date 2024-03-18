@@ -3,14 +3,14 @@
 
 
 //Default constructor
-Student::StudentStudent() : student_id(""), 
-                            first_name(""), 
-                            last_name(""),
-                            email(""),
-                            age(0),
-                            Degree(degree_program::SOFTWARE)
+Student::Student() : student_id(""), 
+                    first_name(""), 
+                    last_name(""),
+                    email(""),
+                    age(0),
+                    degree_program(Degree::SOFTWARE)
     {
-        for (int i=0; i < 3; ++i) 
+        for (int i = 0; i < 3; ++i) 
         {
             days_per_class[i]=0;
         }
@@ -27,7 +27,7 @@ Student::Student(const std::string& studentID,
             for (int i = 0; i < 3; ++i) 
             {
                 this->days_per_class[i] = days_per_class[i];
-            }
+            })
         }
     
 //Destructor
@@ -50,7 +50,7 @@ void set_email(const string& email) {this->email = email;}
 void set_age(int age) {this->age=age;}
 void set_days_per_class(const int days_per_class[]) 
 {
-    for (int=i; i<3; ++i) 
+    for (int i = 0; i < 3; ++i) 
     {
         this->days_per_class[i]=days_per_class[i];
     }
@@ -58,12 +58,21 @@ void set_days_per_class(const int days_per_class[])
 void set_Degree(Degree degree_program) { this->degree_program = degree_program;}
 
 //Print student info
-std::cout << "Student ID: " << student_id << "\t";
-std::cout << "First Name: " << first_name << "\t";
-std::cout << "Last Name: " << last_name << "\t";
-std::cout << "Email: " << email << "\t";
-std::cout << "Age: " << age << "\t";
-std::cout << "Days Per Course: " << days_per_course[0] << ", " << days_per_course[1] << " ," << days_per_course[2] \t";
-std::string degreeProgramStr = (degreeProgram == DegreeProgram::SOFTWARE) ? "SOFTWARE" :
-                                   (degreeProgram == DegreeProgram::SECURITY) ? "SECURITY" : "NETWORK";
-    std::cout << "Degree Program: " << degreeProgramStr << std::endl;
+void Student::print() const 
+{
+    std::cout << "Student ID: " << student_id << "\t"
+              << "First Name: " << first_name << "\t"
+              << "Last Name: " << last_name << "\t"
+              << "Email: " << email << "\t"
+              << "Age: " << age << "\t"
+              << "Days Per Class: {" << days_per_class[0] << ", " << days_per_class[1] << ", " << days_per_class[2] << "}\t"
+              << "Degree Program: ";
+
+    switch(degree_program) 
+        {
+            case Degree::SECURITY: std::cout << "SECURITY"; break;
+            case Degree::NETWORK: std::cout << "NETWORK"; break;
+            case Degree::SOFTWARE: std::cout << "SOFTWARE"; break;
+        }
+    std::cout << std::endl;
+};

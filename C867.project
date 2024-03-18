@@ -6,12 +6,11 @@
     <File Name="Degree.h"/>
     <File Name="Roster.h"/>
     <File Name="Student.h"/>
-    <File Name="main_app.h"/>
   </VirtualDirectory>
   <VirtualDirectory Name="src">
+    <File Name="main.cpp"/>
     <File Name="Roster.cpp"/>
     <File Name="Student.cpp"/>
-    <File Name="main_app.cpp"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>

@@ -4,7 +4,7 @@
 #define STUDENT_H
 
 #include <string>
-include "Degree.h"
+#include "Degree.h"
 
 
 class Student {
@@ -13,7 +13,7 @@ private:
     std::string first_name {};
     std::string last_name {};
     std::string email {};
-    int age
+    int age;
     int days_per_class[3] {};
     Degree degree_program {};
     
@@ -37,7 +37,7 @@ public:
     std::string get_last_name() const;
     std::string get_email();
     int get_age() const;
-    const int* get_days_per_class() const;
+    int* get_days_per_class() const;
     Degree get_degree_program() const;
     
     //Setters
